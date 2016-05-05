@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "MyVotings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-xs-3 addnew">
+    <button class="text-center btn" onclick="location.href = '/Vote/NewVoting'">+ Add New</button>
+</div>
+<div class="clearfix"></div>
+<div class="col-xs-7">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr class="head-table">
+                <th class="text-center">Voting Name<i class="fa fa-sort icons-margin" data-bind="click: sortTableBy.bind($data, 'name')"></i></th>
+                <th class="text-center">Voices Count<i class="fa fa-sort icons-margin" data-bind="click: sortTableBy.bind($data, 'voices')"></i></th>
+                <th class="text-center">Comments<i class="fa fa-sort icons-margin" data-bind="click: sortTableBy.bind($data, 'comments')"></i></th>
+                <th class="text-center">Start Date<i class="fa fa-sort icons-margin" data-bind="click: sortTableBy.bind($data, 'start')"></i></th>
+                <th class="text-center">End Date<i class="fa fa-sort icons-margin" data-bind="click: sortTableBy.bind($data, 'end')"></i></th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" data-bind="foreach: votings">
+            <tr>
+                <td><a href="/Vote/VotingDetails" data-bind="text: $data.name"></a></td>
+                <td data-bind="text: $data.voicesCount"></td>
+                <td data-bind="text: $data.commentsCount"></td>
+                <td data-bind="text: $data.startDate"></td>
+                <td data-bind="text: $data.endDate"></td>
+                <td><a href="#">Close</a> <a href="#">Remove</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div align="center">
+        <ul class="pagination">
+            <li><a href="#"><<</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">>></a></li>
+        </ul>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="/Scripts/custom/controllers/myVotingsPageController.js"></script>
+}

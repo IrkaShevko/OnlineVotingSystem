@@ -1,0 +1,66 @@
+﻿@model OnlineVotingSystem.Models.ViewModels.RegisterUserViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Register</h2>
+@using (@Html.BeginForm("Register", "Account", new {returnUrl = ViewBag.ReturnUrl}, FormMethod.Post))
+{
+    <div data-bind="validationOptions:{insertMessages:false}">
+        @Html.LabelFor(user => user.Email, "Email:")<br/>
+        @Html.TextBoxFor(user => user.Email, new { data_bind = "value: Email, valueUpdate: 'keyup'", @class = "form-control", placeholder = "Email" })
+        <p class="text-danger" data-bind="validationMessage: Email"></p>
+    </div>
+    <br>
+    <div data-bind="validationOptions:{insertMessages:false}">
+        @Html.LabelFor(user => user.Password, "Password:")<br/>
+        @Html.PasswordFor(user => user.Password, new { data_bind = "value: Password, valueUpdate: 'keyup'", @class = "form-control", placeholder = "Password" })
+        <p class="text-danger" data-bind="validationMessage: Password"></p>
+    </div>
+    <br>
+    <div data-bind="validationOptions:{insertMessages:false}">
+        <label>Confirm Password:</label><br/>
+        <input class="form-control" type="password" data-bind="value: ConfirmPassword, valueUpdate: 'onblur'" title="ConfirmPassword">
+        <p class="text-danger" data-bind="validationMessage: ConfirmPassword"></p>
+    </div>
+    <br>
+    <div data-bind="validationOptions:{insertMessages:false}">
+        <label>BirthDate:</label>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="input-group date" id="datetimepicker">
+                        <span data-bind="text: message"></span><br />
+                        @Html.TextBoxFor(user => user.BirthDate, new {data_bind = "datepicker: BirthDate, value: BirthDate,defaultDate: '', dateFormat: 'dd, MM yy'", @class = "form-control datepicker", placeholder = "BirthDate"})
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    <p class="text-danger" data-bind="validationMessage: BirthDate"></p>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function() {
+                    $('#datetimepicker').datetimepicker({ format: 'DD.MM.YYYY' });
+                });
+            </script>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="div-margin-top">
+            <input type="submit" class="btn btn-primary" data-bind="enable: hasAllValues" value="Register"/>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="div-margin-top">
+        </div>
+    </div>
+}
+@section Scripts
+{
+<script src="/Scripts/libs/moment/moment.min.js"></script>
+    <script src="/Scripts/libs/bootstrap/bootstrap-datetimepicker.min.js"></script>
+    <script src="/Scripts/knockout.validation.js"></script>
+    <script src="/Scripts/custom/controllers/registerController.js"></script>
+}
+

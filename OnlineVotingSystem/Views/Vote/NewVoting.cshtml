@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "NewVoting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-xs-12 div-margin-top">
+    <label>Start Date</label>
+    <input type="text" class="form-control" placeholder="Start Date">
+</div>
+<br>
+<div class="col-xs-12 div-margin-top">
+    <label>End Date</label>
+    <input type="text" class="form-control" placeholder="End Date">
+</div>
+<br>
+<div class="col-xs-12 div-margin-top">
+    <label>Description of voting</label>
+    <input type="text" class="form-control" placeholder="Description">
+</div>
+<div class="col-xs-12 div-margin-top">
+    <label>Variants</label>
+    <div class="row" data-bind="foreach: variants">
+        <div class="col-xs-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    <div class="div-margin-top col-xs-8">
+                        <input type="text" class="form-control" data-bind="value: $data.text" />
+                    </div>
+                    <div class="div-margin-top col-xs-4">
+                        <button class="btn btn-danger" data-bind="click: $parent.deleteVariant.bind($data, $index()), css:{hidden : $parent.variants().length === $parent.MIN_COUNT_OF_VARIANTS}">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="div-margin-top" data-bind="css:{hidden : variants().length === MAX_COUNT_OF_VARIANTS}">
+            <button class="btn btn-primary" data-bind="click: addNewVariant">+</button>
+        </div>
+        <div class="div-margin-top">
+            <input type="submit" class="btn btn-success" value="save" data-bind="click: saveVoting"></input>
+        </div>
+    </div>
+    @section Scripts
+{
+        <script src="/Scripts/custom/controllers/newVotingController.js"></script>
+    }

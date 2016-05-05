@@ -1,0 +1,141 @@
+﻿input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.container-fix {
+    width: 1270px;
+}
+.wrapper {
+    margin: auto;
+    padding: 0 15px;
+}
+.header-main {
+    padding: 15px 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(to top, #00CED1, #40E0D0);
+}
+
+.head-table {
+    background-color:darkslateblue;
+    color: white;
+}
+
+.icons-margin {
+    margin-left: 10px;
+}
+
+.footer {
+    padding: 15px 0;
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(to top, #40E0D0, #00CED1);
+    width: 1240px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.footer-div {
+    padding-left: 15px;
+}
+
+.div-voting {
+    border-color: blue;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px 4px;
+}
+
+.logo-container {
+    padding-left: 30px;
+}
+.logo {
+    width: 60px;
+}
+
+.last-item {
+    padding-right: 30px;
+}
+
+.voting-details-container {
+    padding: 30px 15px 5px 25px;
+    margin-top: 10px;
+}
+
+.div-margin-top {
+    padding-top: 20px;
+}
+
+.search-div-margin-top {
+    padding-top: 5px;
+}
+
+.btn-form {
+  display: block;
+  color: #fff;
+  border-radius: 0em; /* Обнулить округлости */
+  -moz-border-radius: 0em; /* Обнулить округлости */
+  -webkit-border-radius: 0em; /* Обнулить округлости */
+  background: #265d94;
+  border: none;
+  text-shadow: -1px -1px 0px rgba(0,0,0,.2);
+  border-bottom: 2px solid #153a65;
+  position: relative;
+    height: 34px;
+    width: 150px;
+}
+.btn-form:after, .btn-form:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+}
+.btn-form:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #265d94;
+	border-width: 16px;
+	margin-top: -16px;
+}
+.btn-form:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #153a65;
+	border-width: 16px;
+	margin-top: -14px;
+}
+.btn-form:hover,
+.btn-form:focus,
+.btn-form:active,
+.btn-form.active,
+.open .dropdown-toggle.btn-form {
+  color: #fff;
+  outline: none;
+  background: #2e6eae;
+  border-bottom: 2px solid #1b4a80;
+}
+.btn-form:hover:after,
+.btn-form:focus:after,
+.btn-form:active:after,
+.btn-form.active:after {
+  border-left-color: #2e6eae;
+}
+.btn-form:active,
+.btn-form.active,
+.open .dropdown-toggle.btn-form {
+  background: #265d94;
+  color: #fff;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.btn-form:active:after,
+.btn-form.active:after,
+.open .dropdown-toggle.btn-form:after {
+  border-left-color: #265d94;
+}
+
+.addnew {
+    margin: 20px;
+}

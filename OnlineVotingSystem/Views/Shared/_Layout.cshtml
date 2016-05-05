@@ -1,0 +1,71 @@
+﻿@using System.Web.UI.WebControls
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/Content/Bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Custom/MyCss.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Bootstrap/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/font-awesome.min.css" />
+    <script src="/Scripts/libs/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <div class="wrapper container-fix clearfix">
+        <header class="header-main clearfix">
+            <div class="row ">
+                <div class="col-xs-1 logo-container">
+                    <a href="/Home/Index"><img src="/Content/Images/online-voting.png" class="logo" /></a>
+                </div>
+                <div class="col-xs-2">
+                    <span class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-default btn-lg">
+                            Votings
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Vote/AllVotings">All Votings</a></li>
+                            <li><a href="/Vote/MostPopular">Most Popular</a></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-default btn-lg">
+                            My Activity
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Vote/MyVotings">Votings</a></li>
+                            <li><a href="/Vote/Voices">Voices</a></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="col-xs-4 search-div-margin-top">
+                    <input type="text" class="form-control" placeholder="search">
+                </div>
+                <div class="col-xs-2 last-item">
+                    <span class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle btn btn-default btn-lg">
+                            Account
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Account/Register">Register</a></li>
+                            <li><a href="/Home/LogIn">Sign In</a></li>
+                            <li><a href="/Home/AboutMe">About Me</a></li>
+                            <li><a href="/Home/Index">Sign Out</a></li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        <div class="footer-div">© @DateTime.Now.Year Ирина Шевко, по всем вопросам пишите по адресу irka_shevko@mail.ru</div>
+    </footer>
+    <script src="/Scripts/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="/Scripts/libs/knockout/knockout-3.4.0.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>
