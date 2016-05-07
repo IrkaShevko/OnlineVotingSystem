@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Register</h2>
-@using (@Html.BeginForm("Register", "Account", new {returnUrl = ViewBag.ReturnUrl}, FormMethod.Post))
+@using (@Html.BeginForm("Register", "Account", new {returnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new { data_bind = "with: user" }))
 {
     <div data-bind="validationOptions:{insertMessages:false}">
         @Html.LabelFor(user => user.Email, "Email:")<br/>
@@ -29,9 +29,8 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <div class="input-group date" id="datetimepicker">
-                        <span data-bind="text: message"></span><br />
-                        @Html.TextBoxFor(user => user.BirthDate, new {data_bind = "datepicker: BirthDate, value: BirthDate,defaultDate: '', dateFormat: 'dd, MM yy'", @class = "form-control datepicker", placeholder = "BirthDate"})
+                    <div class="input-group date" id="datepicker" data-bind="datepicker: BirthDate, dateFormat: 'dd.mm.yyyy'">
+                        @Html.TextBoxFor(user => user.BirthDate, new { data_bind = "value: BirthDate", @class = "form-control", placeholder = "BirthDate" })
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -39,18 +38,18 @@
                     <p class="text-danger" data-bind="validationMessage: BirthDate"></p>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(function() {
-                    $('#datetimepicker').datetimepicker({ format: 'DD.MM.YYYY' });
-                });
-            </script>
         </div>
     </div>
     <div class="col-xs-12">
         <div class="div-margin-top">
-            <input type="submit" class="btn btn-primary" data-bind="enable: hasAllValues" value="Register"/>
+            <input type="submit" class="btn btn-primary" data-bind="enable: $parent.hasAllValues" value="Register"/>
         </div>
     </div>
+    <script>
+        $(function() {
+            $('.datepicker').datepicker({  format: 'DD.MM.YYYY' });
+        });
+    </script>
     <div class="col-xs-12">
         <div class="div-margin-top">
         </div>
@@ -58,9 +57,10 @@
 }
 @section Scripts
 {
-<script src="/Scripts/libs/moment/moment.min.js"></script>
-    <script src="/Scripts/libs/bootstrap/bootstrap-datetimepicker.min.js"></script>
-    <script src="/Scripts/knockout.validation.js"></script>
+    <script src="/Scripts/libs/moment/moment.min.js"></script>
+    <script src="/Scripts/libs/bootstrap/bootstrap-datepicker.min.js"></script>
+    <script src="/Scripts/knockout.validation.min.js"></script>
+    <script src="/Scripts/custom/models/registerUserModel.js"></script>
     <script src="/Scripts/custom/controllers/registerController.js"></script>
 }
 
