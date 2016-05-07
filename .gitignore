@@ -74,4 +74,4 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 # Visual Studio 2015 cache/options directory 
-.vs/
+.vs\
